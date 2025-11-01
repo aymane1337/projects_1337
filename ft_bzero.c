@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahbich <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/30 12:28:00 by ahbich            #+#    #+#             */
+/*   Updated: 2025/10/30 13:17:23 by ahbich           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t i;
+	unsigned char *str;
+
+	str = (unsigned char *)s;
+
+	ft_memset(s,0,n);
+}
+
+int	main()
+{
+	char s[] = "abcd";
+	//printf("%s", s);
+	//printf("\n");
+	ft_bzero(s, 1);
+	for (int i = 1; i < 5; i++)
+		printf("%c", s[i]);
+	//printf("%s", s);
+
+	return (0);
+}
