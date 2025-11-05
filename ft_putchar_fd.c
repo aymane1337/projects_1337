@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahbich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 18:48:30 by ahbich            #+#    #+#             */
-/*   Updated: 2025/10/31 20:27:22 by ahbich           ###   ########.fr       */
+/*   Created: 2025/11/04 15:31:47 by ahbich            #+#    #+#             */
+/*   Updated: 2025/11/04 15:47:14 by ahbich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+// #include <unistd.h>
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	write(fd, &c, 1);
 }
-// #include <stdio.h>
-// int main()
+
+// int	main()
 // {
-//     char str[] = "abcd";
-//     int i = 0;
-
-//     // Loop through each character and convert it to uppercase
-//     while (str[i] != '\0')
-//     {
-//         str[i] = ft_toupper(str[i]);
-//         i++;
-//     }
-
-//     // Print the resulting string
-//     printf("%s\n", str);
-
-//     return (0);
+//     ft_putchar_fd('c', 1);
 // }

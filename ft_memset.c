@@ -10,26 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-void    *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-        size_t	i;
-        unsigned char *str;
+	size_t			i;
+	unsigned char	*str;
 
 	//printf("%d", (char)c);
-
-        str = (unsigned char*)s;
-        i = 0;
-        while (i < n)
-        {
-                str[i] = c;
-                i++;
-        }
-        return (s);
+	str = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (s);
 }
-
+// #include <stdio.h>
 /*int     main()
 {
         char    s[8] = "abcdefgh";
@@ -45,12 +43,11 @@ void    *ft_memset(void *s, int c, size_t n)
 
         return (0);
 }*/
-
-int	main()
-{
-	int	i;
-	i = 0;
-	ft_memset((char *)&i,0b111001, 1);
-	ft_memset((char *)&i + 1, 0b101 , 1);
-	printf("%i\n", i);
-}
+// int	main(void)
+// {
+// 	int	i;
+// 	i = 0;
+// 	ft_memset((char *)&i,0b111001, 1);
+// 	ft_memset((char *)&i + 1, 0b101 , 1);
+// 	printf("%i\n", i);
+// }

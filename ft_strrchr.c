@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char sc;
+	unsigned char	sc;
 	int	i;
 	size_t	slen;
 
@@ -28,23 +27,21 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)(s + i));
 		i--;
 	}
-	return NULL;
-	
-
+	return (NULL);
 }
+// #include <stdio.h>
+// int main(void)
+// {
+//     const char *str = "Hello World!";
+//     char target = 'o';
+//     char *result;
 
-int main(void)
-{
-    const char *str = "Hello World!";
-    char target = 'o';
-    char *result;
+//     result = ft_strrchr(str, target);
 
-    result = ft_strrchr(str, target);
+//     if (result)
+//         printf("Last '%c' found at position: %ld\n", target, result - str);
+//     else
+//         printf("Character '%c' not found\n", target);
 
-    if (result)
-        printf("Last '%c' found at position: %ld\n", target, result - str);
-    else
-        printf("Character '%c' not found\n", target);
-
-    return 0;
-}
+//     return (0);
+// }

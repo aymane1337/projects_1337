@@ -10,21 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		//return (1);
-		write(1, "yes", 3);
+		return (1);
 	else
-		//return (0);
-		write(1, "No", 2);
+		return (0);
 }
-
-int	main()
-{
-	ft_isalpha(',');
-	return (0);
-}
-
+// int	main(void)
+// {
+// 	ft_isalpha(',');
+// 	return (0);
+// }

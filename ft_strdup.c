@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahbich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 18:48:30 by ahbich            #+#    #+#             */
-/*   Updated: 2025/10/31 20:27:22 by ahbich           ###   ########.fr       */
+/*   Created: 2025/11/02 10:54:34 by ahbich            #+#    #+#             */
+/*   Updated: 2025/11/02 11:24:10 by ahbich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*strdup(const char *s)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	char	*sdup;
+	size_t	slen;
+	int		i;
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	i = 0;
+	sdup = malloc((slen + 1) * sizeof(char));
+	if (!sdup)
+		return (NULL);
+	while (i < slen)
+	{
+		sdup[i] = s[i];
+		i++;
+	}
+	sdup[i] = '\0';
+	return (sdup);
 }
-// #include <stdio.h>
-// int main()
-// {
-//     char str[] = "abcd";
-//     int i = 0;
-
-//     // Loop through each character and convert it to uppercase
-//     while (str[i] != '\0')
-//     {
-//         str[i] = ft_toupper(str[i]);
-//         i++;
-//     }
-
-//     // Print the resulting string
-//     printf("%s\n", str);
-
-//     return (0);
-// }

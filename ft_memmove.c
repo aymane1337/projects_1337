@@ -10,20 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t i ;
-	const unsigned	char	*srcp;
-	unsigned char	*destp;
+	size_t				i;
+	const unsigned char	*srcp;
+	unsigned char		*destp;
 
-	srcp = (const unsigned char*)src;
-	destp = (unsigned char*)dest;
-
+	srcp = (const unsigned char *)src;
+	destp = (unsigned char *)dest;
 	i = 0;
-	if (destp < srcp)
-	{	
+	if (destp < srcp || destp >= srcp + n)
+	{
 		while (i < n)
 		{
 			destp[i] = srcp[i];
@@ -37,25 +36,24 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (n > 0)
 		{
-			destp[n-1] = srcp[n-1];
+			destp[n - 1] = srcp[n - 1];
 			n--;
 		}
 		return (dest);
 	}
 }
+// #include <stdio.h>
+// int main()
+// {
+//     char buf[] = "abcdefgh";
 
-int main()
-{
-    char buf[] = "abcdefgh";
+//     // Overlapping memory: dst starts 2 bytes after src
+//     ft_memmove(buf, buf + 2, 5);
 
-    // Overlapping memory: dst starts 2 bytes after src
-    ft_memmove(buf, buf + 2, 5);
+//     // Print result
+//     for (int i = 0; i < 8; i++)
+//         printf("%c", buf[i]);
+//     printf("\n");
 
-    // Print result
-    for (int i = 0; i < 8; i++)
-        printf("%c", buf[i]);
-    printf("\n");
-
-    return 0;
-}
-
+//     return (0);
+// }

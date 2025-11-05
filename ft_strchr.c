@@ -18,6 +18,8 @@ char	*ft_strchr(const char *s, int c)
 	unsigned char sc;
 	int	i;
 
+    if (!s)
+        return (NULL);
 	sc = (unsigned char)c;
 	i = 0;
 
@@ -31,19 +33,19 @@ char	*ft_strchr(const char *s, int c)
 
 }
 
-int main() {
-    const char *str = "Hello, World!";
-    char target = 'o';
-    char *result;
+// int main() {
+//     const char *str = "Hello, World!";
+//     char target = 'o';
+//     char *result;
 
-    result = ft_strchr(str, target);
+//     result = ft_strchr(str, target);
 
-    if (result != NULL) {
-        printf("Character '%c' found at position: %ld\n", target, result - str);
-        printf("Substring from found character: \"%s\"\n", result);
-    } else {
-        printf("Character '%c' not found.\n", target);
-    }
+//     if (result != NULL) {
+//         printf("Character '%c' found at position: %ld\n", target, result - str);
+//         printf("Substring from found character: \"%s\"\n", result);
+//     } else {
+//         printf("Character '%c' not found.\n", target);
+//     }
 
-    return 0;
-}
+//     return 0;
+// }

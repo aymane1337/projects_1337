@@ -11,39 +11,49 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
 	size_t	slen;
 	size_t	dlen;
 
+	if (dst == NULL && size == 0)
+		return (ft_strlen(src));
+	
 	slen = ft_strlen(src);
 	dlen = ft_strlen(dst);
 	i = 0;
-
-	if (dst == NULL && size == 0)
-		return (slen);
-	if (dlen == size)
-		return (slen + dlen);
-	while (src[i] && i < dlen - size - 1)
+	if (size <= dlen)
+		return (slen + size);
+	while (src[i] && dlen + i < size - 1)
+	// while (src[i] && i < size - dlen - 1)
 	{
-		dst[dlen] = src[i];
-		dlen++;
+		dst[dlen + i] = src[i];
 		i++;
 	}
-	dst[dlen] = '\0';
+	dst[dlen + i] = '\0';
 	return (dlen + slen);
 }
-
-int   main()
+#include <stdio.h>
+#include <string.h>
+int main(void)
 {
-        char *src = "efgh";
-        char dest[10] = "abcd";
-        ft_strlcat(dest, src, 10);
-        //printf("%d", ft_strlcpy(dest, src, 4));
-        printf("%s", dest);
-        return (0);
-}
+    const char *src = "World!";
+    size_t ret;
 
+    // Case 1: NULL destination with size 0 (only for ft_strlcat)
+    // ret = ft_strlcat(NULL, src, 0);
+    // printf("ft_strlcat (NULL dst, size 0): returned: %zu\n", ret);
+
+    // Case 2: Valid destination but size 0
+    char buf1[20] = "Hello";
+    char buf2[20] = "Hello";
+
+    // ret = strlcat(buf1, src, 1);
+    ret = ft_strlcat(buf1, src, 11);
+    printf("returned: %zu\n", ret);
+    printf("returned: %s\n", buf1);
+
+    return 0;
+}

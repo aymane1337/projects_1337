@@ -10,28 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
-	unsigned char *str;
+	size_t			i;
+	unsigned char	*str;
 
 	str = (unsigned char *)s;
-
-	ft_memset(s,0,n);
+	ft_memset(s, 0, n);
 }
+// int	main(void)
+// {
+// 	char s[] = "abcd";
+// 	//printf("%s", s);
+// 	//printf("\n");
+// 	ft_bzero(s, 1);
+// 	for (int i = 1; i < 5; i++)
+// 		printf("%c", s[i]);
+// 	//printf("%s", s);
 
-int	main()
-{
-	char s[] = "abcd";
-	//printf("%s", s);
-	//printf("\n");
-	ft_bzero(s, 1);
-	for (int i = 1; i < 5; i++)
-		printf("%c", s[i]);
-	//printf("%s", s);
-
-	return (0);
-}
+// 	return (0);
+// }

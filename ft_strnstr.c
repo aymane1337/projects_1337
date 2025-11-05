@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
@@ -22,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[i] && i < len)
-	{	
+	{
 		j = 0;
 		while (big[i + j] == little[j] && i + j < len)
 		{
@@ -34,16 +33,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-int	main()
-{
-	char *haystack = "hello world";
-   	char *needle = "lo";
-    	size_t len = 11;
-    	char *res = ft_strnstr(haystack, needle, len);
-    	if (res)
-       	 printf("Found: %s\n", res); // Output: "lo world"
-   	 else
-        	printf("Not found\n");
-    	return 0;
-}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char *haystack = "hello world";
+//    	char *needle = "lo";
+//     	size_t len = 11;
+//     	char *res = ft_strnstr(haystack, needle, len);
+//     	if (res)
+//        		printf("Found: %s\n", res); // Output: "lo world"
+//    		else
+//         	printf("Not found\n");
+//     	return (0);
+// }
