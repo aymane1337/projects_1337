@@ -18,8 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char		*dstc;
 	const unsigned char	*srcc;
 
-	if (dest == src)
-		return (dest);
+	if (!dest && !src)
+		return (NULL);
 	dstc = (unsigned char *)dest;
 	srcc = (const unsigned char *)src;
 	i = 0;
@@ -32,15 +32,15 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 }
 // #include<string.h>
 // #include <stdio.h>
-
 // int main(void)
 // {
 // 	char *buf1 = "HelloWorld";
 // 	char buf2[20] = "HelloWorld";
 
 // 	// Normal memcpy (works fine)
-// 	memcpy(buf1, buf1, 5);
-// 	printf("memcpy result: %s\n", buf1);
+// 	//memcpy("abc", "abc", 5);
+// 	char	*s = NULL;
+// 	printf("%s", (char *)memmove(s, s, 1));
 
 // 	// Our unsafe ft_memcpy
 // 	// ft_memcpy(buf2 + 2, buf2, 5);

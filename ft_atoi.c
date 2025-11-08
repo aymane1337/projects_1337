@@ -24,11 +24,25 @@ static	int	skip_whitespace(const char *str)
 	return (i);
 }
 
+static int	overflow(long prv_res, long res, int sign)
+{
+	if (res < prv_res)
+	{
+		if (sign == 1)
+			return (-1);
+		else
+			return (0);
+	}
+	return (1);
+}
+
 int	ft_atoi(const char *nptr)
 {
 	int		i;
 	int		sign;
 	long	result;
+	long	prv_result;
+	int		check;
 
 	sign = 1;
 	result = 0;
@@ -41,11 +55,11 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
+		prv_result = result;
 		result = (result * 10) + (nptr[i] - '0');
-		if (sign == 1 && result > INT_MAX)
-			return (-1);
-		if ((sign == -1) && (-result < INT_MIN))
-			return (0);
+		check = overflow(prv_result, result, sign);
+		if (check != 1)
+			return (check);
 		i++;
 	}
 	return ((int)(result * sign));
@@ -56,17 +70,17 @@ int	ft_atoi(const char *nptr)
 // #include <limits.h>
 // int main()
 // {
-//     const char *num1 = "  123a41";
+//     const char *num1 = "2147483648";
 //     // const char *num2 = "-123443333333333333333333";
 
-//     int ft_result1 = ft_atoi(num1);
-//     int std_result1 = atoi(num1);
+//     // int ft_result1 = ft_atoi(num1);
+//     // int std_result1 = atoi(num1);
 
 //     // int ft_result2 = ft_atoi(num2);
 //     // int std_result2 = atoi(num2);
 
-//     printf("ft_atoi(\"%s\") = %d\n", num1, ft_result1);
-//     printf("atoi(\"%s\")    = %d\n", num1, std_result1);
+//     printf("%d\n", atoi("-2147483650"));
+//     // printf("atoi(\"%s\")    = %d\n", num1, std_result1);
 //     printf("-------------------------------\n");
 //     // printf("ft_atoi(\"%s\") = %d\n", num2, ft_result2);
 //     // printf("atoi(\"%s\")    = %d\n", num2, std_result2);
