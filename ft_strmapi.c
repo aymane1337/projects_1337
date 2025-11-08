@@ -6,7 +6,7 @@
 /*   By: ahbich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 12:52:20 by ahbich            #+#    #+#             */
-/*   Updated: 2025/11/04 14:44:20 by ahbich           ###   ########.fr       */
+/*   Updated: 2025/11/06 10:12:21 by ahbich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*finalstr;
+	char			*finalstr;
 	unsigned int	i;
-	size_t	slen;
-	if(!s || !f)
+	size_t			slen;
+
+	if ((!s || !f))
 		return (NULL);
 	slen = ft_strlen(s);
 	finalstr = malloc(sizeof(char) * (slen + 1));
@@ -33,14 +34,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (finalstr);
 }
 
-
-char capitalize_even(unsigned int i, char c)
-{
-    if (i % 2 == 0 && c >= 'a' && c <= 'z')
-        return c - 32; // convert to uppercase
-    return c;
-}
-
+// char capitalize_even(unsigned int i, char c)
+// {
+//     if (i % 2 == 0 && c >= 'a' && c <= 'z')
+//         return c - 32; // convert to uppercase
+//     return c;
+// }
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <string.h>
@@ -63,4 +62,3 @@ char capitalize_even(unsigned int i, char c)
 //     free(result);
 //     return 0;
 // }
-

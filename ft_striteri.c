@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h>"
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	slen;
-	int	i;
+	size_t	i;
+
 	if (!s)
-		return (NULL);
+		return ;
 	slen = ft_strlen(s);
 	i = 0;
 	while (i < slen)
@@ -26,26 +27,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-
-
-// void to_upper(unsigned int i, char *c)
-// {
-//     if (*c >= 'a' && *c <= 'z')
-//         *c = *c - 32; // convert to uppercase
-// }
-
-// #include <stdio.h>
-// #include <string.h>
-
-// int main(void)
-// {
-//     char str[] = "hello world";
-
-//     printf("Before: %s\n", str);
-
-//     ft_striteri(str, to_upper);
-
-//     printf("After:  %s\n", str);
-
-//     return 0;
-// }

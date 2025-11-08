@@ -15,12 +15,10 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	unsigned char	sc;
-	int	i;
-	size_t	slen;
+	int				i;
 
 	sc = (unsigned char)c;
 	i = (int)ft_strlen(s);
-	//i = ;
 	while (i >= 0)
 	{
 		if (s[i] == sc)

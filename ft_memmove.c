@@ -18,6 +18,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const unsigned char	*srcp;
 	unsigned char		*destp;
 
+	if (!dest && !src)
+		return (NULL);
 	srcp = (const unsigned char *)src;
 	destp = (unsigned char *)dest;
 	i = 0;
@@ -30,30 +32,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 		return (dest);
 	}
-	else if (destp == srcp)
-		return (dest);
-	else
+	while (n > 0)
 	{
-		while (n > 0)
-		{
-			destp[n - 1] = srcp[n - 1];
-			n--;
-		}
-		return (dest);
+		destp[n - 1] = srcp[n - 1];
+		n--;
 	}
+	return (dest);
 }
-// #include <stdio.h>
-// int main()
-// {
-//     char buf[] = "abcdefgh";
-
-//     // Overlapping memory: dst starts 2 bytes after src
-//     ft_memmove(buf, buf + 2, 5);
-
-//     // Print result
-//     for (int i = 0; i < 8; i++)
-//         printf("%c", buf[i]);
-//     printf("\n");
-
-//     return (0);
-// }

@@ -6,7 +6,7 @@
 /*   By: ahbich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:24:01 by ahbich            #+#    #+#             */
-/*   Updated: 2025/10/31 18:47:58 by ahbich           ###   ########.fr       */
+/*   Updated: 2025/11/07 23:36:22 by ahbich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	if (dst == NULL && size == 0)
 		return (ft_strlen(src));
-	
 	slen = ft_strlen(src);
 	dlen = ft_strlen(dst);
 	i = 0;
 	if (size <= dlen)
 		return (slen + size);
 	while (src[i] && dlen + i < size - 1)
-	// while (src[i] && i < size - dlen - 1)
 	{
 		dst[dlen + i] = src[i];
 		i++;
@@ -35,25 +33,35 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dlen + i] = '\0';
 	return (dlen + slen);
 }
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-    const char *src = "World!";
-    size_t ret;
+// #include<bsd/string.h>
+// #include<stdio.h>
+// int main()
+// {
+// 	char dst[10] = "amine";
+// 	char src[3] = "ami";
+// 	printf("%zu\n",ft_strlcat(dst,src,12));
+// }
+// while (src[i] && i < size - dlen - 1)
+// #include <stdio.h>
+// #include <string.h>
+// int main(void)
+// {
+// 	char dst1[20] = "Hello";
+// 	char dst2[20] = "Hello";
+// 	const char *src = " World!";
+// 	size_t size = sizeof(dst1);
 
-    // Case 1: NULL destination with size 0 (only for ft_strlcat)
-    // ret = ft_strlcat(NULL, src, 0);
-    // printf("ft_strlcat (NULL dst, size 0): returned: %zu\n", ret);
+// 	// Using original strlcat
+// 	size_t ret_original = strlcat(dst1, src, size);
+// 	printf("Original strlcat:\n");
+// 	printf("Result string: '%s'\n", dst1);
+// 	printf("Return value: %zu\n\n", ret_original);
 
-    // Case 2: Valid destination but size 0
-    char buf1[20] = "Hello";
-    char buf2[20] = "Hello";
+// 	// Using custom ft_strlcat
+// 	size_t ret_custom = ft_strlcat(dst2, src, size);
+// 	printf("Custom ft_strlcat:\n");
+// 	printf("Result string: '%s'\n", dst2);
+// 	printf("Return value: %zu\n", ret_custom);
 
-    // ret = strlcat(buf1, src, 1);
-    ret = ft_strlcat(buf1, src, 11);
-    printf("returned: %zu\n", ret);
-    printf("returned: %s\n", buf1);
-
-    return 0;
-}
+// 	return 0;
+// }

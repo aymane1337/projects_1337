@@ -17,7 +17,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t			i;
 	unsigned char	*str;
 
-	//printf("%d", (char)c);
 	str = (unsigned char *)s;
 	i = 0;
 	while (i < n)
@@ -27,6 +26,13 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+// #include<stdio.h>
+// #include<string.h>
+// int main()
+// {
+// 	char s[] = "amine";
+// 	memset(s, 48, -1);	
+// }
 // #include <stdio.h>
 /*int     main()
 {

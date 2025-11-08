@@ -15,45 +15,41 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trimstr;
 	int		start;
 	int		end;
 
 	start = 0;
-	end = strlen(s1) - 1;
-	while (s1[start] && strchr(set, s1[start]))
+	end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_strchr(set, s1[start]))
 	{
 		start++;
 	}
-	while (end > start && strchr(set, s1[end]))
+	while (end > start && ft_strchr(set, s1[end]))
 	{
 		end--;
 	}
-	//trimstr = malloc((end - start + 1 + 1) * sizeof(char));
-	//if (!trimstr)
-	//	return (NULL);
-	return (substr(s1, start, end - start + 1));
+	return (ft_substr(s1, start, end - start + 1));
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	*s1;
-	char	*set;
-	char	*trimmed;
+// int	main(void)
+// {
+// 	char	*s1;
+// 	char	*set;
+// 	char	*trimmed;
 
-	s1 = "---abcd#---";
-	set = "-#";
-	trimmed = ft_strtrim(s1, set);
-	if (!trimmed)
-	{
-		printf("Allocation failed\n");
-		return (1);
-	}
-	printf("Original : [%s]\n", s1);
-	printf("Set      : [%s]\n", set);
-	printf("Trimmed  : [%s]\n", trimmed);
-	free(trimmed);
-	return (0);
-}
+// 	s1 = "---abcd#---";
+// 	set = "-#";
+// 	trimmed = ft_strtrim(s1, set);
+// 	if (!trimmed)
+// 	{
+// 		printf("Allocation failed\n");
+// 		return (1);
+// 	}
+// 	printf("Original : [%s]\n", s1);
+// 	printf("Set      : [%s]\n", set);
+// 	printf("Trimmed  : [%s]\n", trimmed);
+// 	free(trimmed);
+// 	return (0);
+// }

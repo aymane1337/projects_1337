@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static int count_int(int n)
+static	int	count_int(long n)
 {
 	int	count;
-	
+
 	count = 0;
 	if (n < 0)
 	{
@@ -30,53 +30,46 @@ static int count_int(int n)
 	{
 		count++;
 	}
-
 	return (count);
 }
 
-char	*ft_itoa(int n)
+static	void	fill_digits(char *str, long n, int len, int is_negative)
 {
-	int	len_int;
-	char	*finalstr;
-	int	i;
 	int	digit;
-	int	is_negative = 0;
+	int	i;
 
-	
-	len_int = count_int(n);
-	if (n < 0)
-	{
-		n = -n;
-		is_negative = 1;
-		len_int++;
-	}
-		
-	finalstr = malloc(sizeof(char) * (len_int + 1));
-	if(!finalstr)
-		return (NULL);
-	i = len_int - 1;
+	i = len - 1;
 	while (i >= is_negative)
 	{
 		digit = n % 10;
-		finalstr[i] = digit + '0';
+		str[i] = digit + '0';
 		n = n / 10;
 		i--;
 	}
 	if (is_negative)
-		finalstr[0] = '-';
-	finalstr[len_int] = '\0';
-
-	return (finalstr);
+		str[0] = '-';
+	str[len] = '\0';
 }
 
-#include <stdio.h>
-#include <stdlib.h>
-
-int main(void)
+char	*ft_itoa(int n)
 {
-    //int n = -1234;
-    char *s = ft_itoa(077);
-    printf("%s\n", s);
-    free(s);
-    return 0;
+	int		len_int;
+	long	num;
+	char	*finalstr;
+	int		is_negative;
+
+	num = n;
+	is_negative = 0;
+	len_int = count_int(n);
+	if (n < 0)
+	{
+		num = -num;
+		is_negative = 1;
+		len_int++;
+	}
+	finalstr = malloc(sizeof(char) * (len_int + 1));
+	if (!finalstr)
+		return (NULL);
+	fill_digits(finalstr, num, len_int, is_negative);
+	return (finalstr);
 }

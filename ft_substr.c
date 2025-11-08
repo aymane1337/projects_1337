@@ -20,9 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if ((size_t)start >= ft_strlen(s))
-		return (calloc(1, 1));
-	//if (start + len > strlen(s))
-	//len = strlen(s) - start;
+		len = 0;
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
 	sbstr = malloc((len + 1) * sizeof(char));
@@ -38,32 +36,35 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sbstr[i] = '\0';
 	return (sbstr);
 }
- #include <stdlib.h>
-#include <stdio.h>
- #include <string.h>
- int main()
- {
-     const char *s = "abcdefg";    // length = 7
-     size_t start = 6;       // near the end
-     size_t len = SIZE_MAX;        // huge requested length
 
-     char *str = NULL;
+//if (start + len > strlen(s))
+//len = strlen(s) - start;
+//  #include <stdlib.h>
+// #include <stdio.h>
+//  #include <string.h>
+//  int main()
+//  {
+//      const char *s = "abcdefg";    // length = 7
+//      size_t start = 6;       // near the end
+//      size_t len = SIZE_MAX;        // huge requested length
 
-     printf("%p\n", str);
+//      char *str = NULL;
 
-     printf("Original string: '%s'\n", s);
-     printf("Requested start: %zu, requested len: %zu\n\n", start, len);
+//      printf("%p\n", str);
 
-     char *sub = ft_substr(s, 100, 2); // safe method used
-     if (sub)
-     {
-         printf("Safe method result: '%s'\n", sub);
-         free(sub);
-     }
-     else
-     {
-         printf("Allocation failed\n");
-     }
+//      printf("Original string: '%s'\n", s);
+//      printf("Requested start: %zu, requested len: %zu\n\n", start, len);
 
-     return (0);
- }
+//      char *sub = ft_substr(s, 100, 2); // safe method used
+//      if (sub)
+//      {
+//          printf("Safe method result: '%s'\n", sub);
+//          free(sub);
+//      }
+//      else
+//      {
+//          printf("Allocation failed\n");
+//      }
+
+//      return (0);
+//  }

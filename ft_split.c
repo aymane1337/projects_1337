@@ -31,6 +31,7 @@ static size_t	cwords(const char *s, char c)
 	}
 	return (count);
 }
+
 static char	*alloc_word(const char *s, char c, size_t *wordlen)
 {
 	char	*word;
@@ -56,7 +57,6 @@ static char	*alloc_word(const char *s, char c, size_t *wordlen)
 
 static void	*free_memory(char **arr, size_t filled)
 {
-
 	while (filled > 0)
 	{
 		filled--;
@@ -65,6 +65,7 @@ static void	*free_memory(char **arr, size_t filled)
 	free(arr);
 	return (NULL);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**splitedstr;
@@ -94,19 +95,19 @@ char	**ft_split(char const *s, char c)
 	return (splitedstr);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	**arr;
-	size_t	i;
+// int	main(void)
+// {
+// 	char	**arr;
+// 	size_t	i;
 
-	arr = ft_split(NULL, ',');
-	i = 0;
-	//while (arr[i])
-	//{
-	//	printf("Word %zu: %s\n", i, arr[i]);
-	//	i++;
-	//}
-	//free_memory(arr, i);
-}
+// 	arr = ft_split(NULL, ',');
+// 	i = 0;
+// 	//while (arr[i])
+// 	//{
+// 	//	printf("Word %zu: %s\n", i, arr[i]);
+// 	//	i++;
+// 	//}
+// 	//free_memory(arr, i);
+// }
